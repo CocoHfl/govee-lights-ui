@@ -1,0 +1,5 @@
+{
+  "key": "YOUR_GOVEE_API_KEY",
+  "macAddress": "YOUR_DEVICE_MAC_ADDRESS",
+  "deviceModel": "YOUR_DEVICE_MODEL"
+}
