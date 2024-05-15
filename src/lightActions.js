@@ -1,15 +1,9 @@
 const lightActions = {
 
-    // Function to turn the light on
-    startLight: function (govee, req, res) {
-        govee.control.setOn(true)
-            .then(() => this.successCallback(req, res), err => { this.failureCallback(err, res) })
-    },
-
-    // Function to turn the light off
-    stopLight: function (govee, req, res) {
-        govee.control.setOn(false)
-            .then(() => this.successCallback(req, res), err => { this.failureCallback(err, res) })
+    // Function to turn the light on/off
+    setLightState: function (govee, req, res, state) {
+        govee.control.setOn(state)
+            .then(() => this.successCallback(req, res), err => this.failureCallback(err, res))
     },
 
     // Function to set the color of the light
