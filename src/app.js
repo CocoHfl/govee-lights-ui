@@ -19,7 +19,7 @@ app.route('/command')
     switch (req.query.action) {
       case 'start':
       case 'stop':
-        return lightActions.setLightState(govee, req, res, req.query.action == "start" ? true : false)
+        return lightActions.setLightState(govee, req, res, req.query.action == 'start' ? true : false)
 
       case 'setColor':
         return lightActions.setLightColor(govee, req, res)
@@ -34,7 +34,7 @@ app.route('/command')
         return favHandler.deleteFav(req, res)
 
       default:
-        return res.status(404).send(`Unknown command "${req.query.action}"`)
+        return res.status(404).send(`Unknown command '${req.query.action}'`)
     }
   })
 
@@ -49,6 +49,6 @@ app.route('/command')
         return lightActions.getDeviceStatus(govee, res)
 
       default:
-        return res.status(404).send(`Unknown command "${req.query.action}"`)
+        return res.status(404).send(`Unknown command '${req.query.action}'`)
     }
   })
