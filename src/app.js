@@ -3,9 +3,20 @@ const app = express()
 app.use(express.json())
 const path = require('path')
 const govee = require('govee-api')
-const cfg = require('./config/config.json')
 const favHandler = require('./favHandler')
 const lightActions = require('./lightActions')
+
+let cfg
+try {
+  cfg = require('./config/config.json')
+} catch (error) {
+    if (error.code === 'MODULE_NOT_FOUND') {
+      console.error('Config file not found. Make sure it exists in \'src/config/config.json\'.')
+      process.exit(1)
+    } else {
+      throw error
+    }
+}
 
 app.use(express.static(path.join(__dirname, '../public')))
 
