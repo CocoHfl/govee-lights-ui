@@ -18,10 +18,8 @@ app.route('/command')
     // Determine the action to perform based on the 'action' query parameter
     switch (req.query.action) {
       case 'start':
-        return lightActions.setLightState(govee, req, res, true)
-
       case 'stop':
-        return lightActions.setLightState(govee, req, res, false)
+        return lightActions.setLightState(govee, req, res, req.query.action == "start" ? true : false)
 
       case 'setColor':
         return lightActions.setLightColor(govee, req, res)
