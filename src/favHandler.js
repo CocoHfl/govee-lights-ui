@@ -1,4 +1,6 @@
 const fs = require('fs')
+const path = require('path')
+const filePath = path.join(__dirname, 'data', 'favorites.json')
 
 const favHandler = {
 
@@ -23,7 +25,7 @@ const favHandler = {
             } else {
                 json.favorites.push({ id: initialLength, color: req.body.color })
 
-                fs.writeFile('favorites.json', JSON.stringify(json), function (err) {
+                fs.writeFile(filePath, JSON.stringify(json), function (err) {
                     if (err) throw err
 
                     let favorite = {}
@@ -51,7 +53,7 @@ const favHandler = {
             }
 
             // Write updated data
-            fs.writeFile('favorites.json', JSON.stringify(json), function (err) {
+            fs.writeFile(filePath, JSON.stringify(json), function (err) {
                 if (err) throw err
             })
 
@@ -62,7 +64,7 @@ const favHandler = {
         }
     },
     getFavoritesJson: function () {
-        let content = fs.readFileSync('favorites.json')
+        let content = fs.readFileSync(filePath)
         if (content.length === 0) {
             return {
                 favorites: [],

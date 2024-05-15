@@ -3,11 +3,11 @@ const app = express()
 app.use(express.json())
 const path = require('path')
 const govee = require('govee-api')
-const cfg = require('./config.json')
+const cfg = require('./config/config.json')
 const favHandler = require('./favHandler')
 const lightActions = require('./lightActions')
 
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 
 app.listen(3000, () => console.log('Server ready! \n=> http://localhost:3000'))
 govee.initDevice(cfg.key, cfg.macAddress, cfg.deviceModel)
