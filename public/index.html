@@ -2,36 +2,36 @@
 <html>
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-  <link rel="stylesheet" href="style.css">
-  <script src="libs/jquery-3.5.1.min.js"></script>
-  <script src="light-requests.js"></script>
-  <script src="light-ui-utils.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="style.css">
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script src="light-requests.js"></script>
+    <script src="light-ui-utils.js"></script>
 </head>
 <div id="loader">
-  <img class="loaderImg" src="imgs/loader.gif" alt="loader image" />
+    <img class="loaderImg" src="imgs/loader.gif" alt="loader image" />
 </div>
 <div id="lightBackground"></div>
 <div class="container">
-  <P id="switch-container">
-    <label class="switch">
-      <input type="checkbox" id="switch" name="switch" onchange="toggleOnOff()">
-      <span class="slider round"></span>
-    </label>
-  </P>
-  <P id="color-container" class="light-params">
-    <label for="colorPicker">Light color</label>
-    <input type="color" id="colorPicker" name="colorPicker" value="#ffffff"
-      onchange="changeColor($(this).val(), false)">
-    <img id="favButton" name="favButon" onclick="addToFav()" src="imgs/favorite.png" />
-  </P>
-  <div id="favorites-container" class="light-params">
-  </div>
-  <P id="brightness-container" class="light-params">
-    <label for="brightness">Brightness</label>
-    <input id="brightness" name="brightness" type="range" min="0" max="100" onchange="changeBrightness(this)">
-  </P>
+    <P id="switch-container">
+        <label class="switch">
+            <input type="checkbox" id="switch" name="switch" onchange="toggleOnOff()">
+            <span class="slider round"></span>
+        </label>
+    </P>
+    <P id="color-container" class="light-params">
+        <label for="colorPicker">Light color</label>
+        <input type="color" id="colorPicker" name="colorPicker" value="#ffffff"
+            onchange="changeColor($(this).val(), false)">
+        <img id="favButton" name="favButon" onclick="addToFav()" src="imgs/favorite.png" />
+    </P>
+    <div id="favorites-container" class="light-params">
+    </div>
+    <P id="brightness-container" class="light-params">
+        <label for="brightness">Brightness</label>
+        <input id="brightness" name="brightness" type="range" min="0" max="100" onchange="changeBrightness(this)">
+    </P>
 </div>
 <div id="snackbar"></div>
 </div>

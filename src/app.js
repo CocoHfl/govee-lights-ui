@@ -8,13 +8,13 @@ const lightActions = require('./lightActions')
 
 let cfg
 try {
-  cfg = require('./config/config.json')
+    cfg = require('./config/config.json')
 } catch (error) {
     if (error.code === 'MODULE_NOT_FOUND') {
-      console.error('Config file not found. Make sure it exists in \'src/config/config.json\'.')
-      process.exit(1)
+        console.error('Config file not found. Make sure it exists in \'src/config/config.json\'.')
+        process.exit(1)
     } else {
-      throw error
+        throw error
     }
 }
 
@@ -24,42 +24,42 @@ app.listen(3000, () => console.log('Server ready! \n=> http://localhost:3000'))
 govee.initDevice(cfg.key, cfg.macAddress, cfg.deviceModel)
 
 app.route('/command')
-  // Handle POST requests to the '/command' endpoint
-  .post(function (req, res) {
-    // Determine the action to perform based on the 'action' query parameter
-    switch (req.query.action) {
-      case 'start':
-      case 'stop':
-        return lightActions.setLightState(govee, req, res, req.query.action == 'start' ? true : false)
+    // Handle POST requests to the '/command' endpoint
+    .post(function (req, res) {
+        // Determine the action to perform based on the 'action' query parameter
+        switch (req.query.action) {
+            case 'start':
+            case 'stop':
+                return lightActions.setLightState(govee, req, res, req.query.action == 'start' ? true : false)
 
-      case 'setColor':
-        return lightActions.setLightColor(govee, req, res)
+            case 'setColor':
+                return lightActions.setLightColor(govee, req, res)
 
-      case 'setBrightness':
-        return lightActions.setLightBrightness(govee, req, res)
+            case 'setBrightness':
+                return lightActions.setLightBrightness(govee, req, res)
 
-      case 'writeFav':
-        return favHandler.writeFav(req, res)
+            case 'writeFav':
+                return favHandler.writeFav(req, res)
 
-      case 'deleteFav':
-        return favHandler.deleteFav(req, res)
+            case 'deleteFav':
+                return favHandler.deleteFav(req, res)
 
-      default:
-        return res.status(404).send(`Unknown command '${req.query.action}'`)
-    }
-  })
+            default:
+                return res.status(404).send(`Unknown command '${req.query.action}'`)
+        }
+    })
 
-  // Handle GET requests to the '/command' endpoint
-  .get(function (req, res) {
-    // Determine the action to perform based on the 'action' query parameter
-    switch (req.query.action) {
-      case 'readFavs':
-        return favHandler.readFavs(res)
+    // Handle GET requests to the '/command' endpoint
+    .get(function (req, res) {
+        // Determine the action to perform based on the 'action' query parameter
+        switch (req.query.action) {
+            case 'readFavs':
+                return favHandler.readFavs(res)
 
-      case 'status':
-        return lightActions.getDeviceStatus(govee, res)
+            case 'status':
+                return lightActions.getDeviceStatus(govee, res)
 
-      default:
-        return res.status(404).send(`Unknown command '${req.query.action}'`)
-    }
-  })
+            default:
+                return res.status(404).send(`Unknown command '${req.query.action}'`)
+        }
+    })
