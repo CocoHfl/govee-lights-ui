@@ -1,7 +1,7 @@
 const Service = require('node-windows').Service
 
 var svc = new Service({
-    name: 'goveelights',
+    name: 'govee-lights-ui',
     description: 'Govee lights UI service',
     script: 'src/app.js'
 })
@@ -15,7 +15,7 @@ if (action === 'install') {
     })
 
     svc.on('start', function () {
-        console.log(`Service started!`)
+        console.log('Service started!')
     })
 
     svc.install()
