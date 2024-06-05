@@ -3,7 +3,7 @@ const Service = require('node-windows').Service
 var svc = new Service({
     name: 'goveelights',
     description: 'Govee lights UI service',
-    script: 'app.js'
+    script: 'src/app.js'
 })
 
 const action = process.argv[2]
