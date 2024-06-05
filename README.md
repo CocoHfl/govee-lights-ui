@@ -12,6 +12,10 @@ Features:
 <img src="public/imgs/app-screenshot.png" alt="App screenshot" width="400">
 
 ## Setup
+
+Before getting started, make sure you have a Govee API key.  
+To obtain your API key, please refer to the [Govee API documentation](https://developer.govee.com/docs/getting-started).
+
 ### Configuration
 
 1. Navigate to the `src/config` folder.
