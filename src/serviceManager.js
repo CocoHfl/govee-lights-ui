@@ -1,11 +1,9 @@
-const path = require('path')
-const appPath = path.join(__dirname, 'src', 'app.js')
 const Service = require('node-windows').Service
 
 var svc = new Service({
     name: 'goveelights',
     description: 'Govee lights UI service',
-    script: appPath
+    script: 'app.js'
 })
 
 const action = process.argv[2]
